@@ -1,0 +1,5 @@
+resources:
+  - ../../base
+  - ./pgadmin.yaml # I think that a dev env would work better for this
+patches:
+  - path: patch.yaml

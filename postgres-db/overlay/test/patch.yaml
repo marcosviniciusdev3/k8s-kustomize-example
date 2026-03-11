@@ -1,0 +1,8 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres-sts
+  labels:
+    env: test
+spec:
+  replicas: 1
