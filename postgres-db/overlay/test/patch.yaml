@@ -6,3 +6,21 @@ metadata:
     env: test
 spec:
   replicas: 1
+  template:
+    metadata:
+      labels:
+        env: test
+    spec:
+      initContainers:
+        - name: initialize-database
+          image: debian:trixie-slim
+          command: ["sh", "-c", 'echo "container initialization 1, 2, 3..."']
+      containers:
+        - name: debian-test
+          image: debian:trixie-slim
+          restartPolicy: Never
+          command: ["/bin/sh", "-c"]
+          args:
+            - apt update;
+              apt install pgcli;
+              sleep 1h
